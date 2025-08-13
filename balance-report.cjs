@@ -10,7 +10,7 @@ const { spawn } = require('child_process');
 (async () => {
   const wallet = process.env.WALLET;
   if (!wallet) {
-    console.error("❌ WALLET tidak ditemukan di .env");
+    console.error("❌ WALLET not found di .env");
     process.exit(1);
   }
 
@@ -22,7 +22,7 @@ const { spawn } = require('child_process');
 
   // Baca tx hash terakhir (disimpan Menu 1/3)
   const txHashFile = path.join(__dirname, 'last_tx_hash.txt');
-  let lastTxHash = 'Belum ada transaksi';
+  let lastTxHash = 'No Transaction';
   try {
     if (fs.existsSync(txHashFile)) {
       const raw = fs.readFileSync(txHashFile, 'utf8').trim();
@@ -30,15 +30,16 @@ const { spawn } = require('child_process');
     }
   } catch {}
 
-  const report = `⏱️ Waktu Cek: ${timeNow}
+  const report = `⏱️ Time Check: ${timeNow}
 💳 Wallet: ${walletMasked}
 💰 NPT Balance: ${reportData.balance}
 🔗 Base Name: ${reportData.baseName}
 Ξ  ETH Balance : ${ethBalance} ETH
 📜 Tx Hash     : ${lastTxHash}`;
 
-  const sendReport = spawn('node', [path.join(__dirname, 'send-report.cjs'), 'Cek Balance']);
+  const sendReport = spawn('node', [path.join(__dirname, 'send-report.cjs'), 'Check Balance']);
   sendReport.stdin.write(report);
   sendReport.stdin.end();
 })();
+
 
