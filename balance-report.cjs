@@ -1,4 +1,3 @@
-// balance-report.cjs
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
@@ -42,3 +41,4 @@ const { spawn } = require('child_process');
   sendReport.stdin.write(report);
   sendReport.stdin.end();
 })();
+
