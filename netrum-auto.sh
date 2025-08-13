@@ -10,7 +10,7 @@ send_log() {
     local log="$2"
     echo "$log" | node "$SEND_REPORT" "$title"
     if [ $? -ne 0 ]; then
-        echo "⚠️  Gagal mengirim report: $title"
+        echo "⚠️ Failed Send Report report: $title"
     fi
 }
 
@@ -42,15 +42,15 @@ generate_report() {
         REPORT="⏱️ Waktu Claim: $TIMESTAMP
 💳 Wallet: $WALLETMASKED
 🔗 Base Name: $BASE_NAME
-✅ Claim sukses: $CLAIMABLE NPT ditambahkan ke wallet.
+✅ Claim success: $CLAIMABLE NPT add on Your wallet.
 ⛏️ Mining Token: $CLAIMABLE NPT
 🔄 Sync Status: $SYNC_LOG
 🔗 Tx Hash: $TX_HASH"
     else
-        REPORT="⏱️ Waktu Claim: $TIMESTAMP
+        REPORT="⏱️ Time Claim: $TIMESTAMP
 💳 Wallet: $WALLETMASKED
 🔗 Base Name: $BASE_NAME
-❌ Claim Gagal: $ERROR
+❌ Claim Failed: $ERROR
 ⛏️ Mining Token: $CLAIMABLE NPT
 🔄 Sync Status: $SYNC_LOG
 🔗 Tx Hash: $TX_HASH"
@@ -59,23 +59,23 @@ generate_report() {
     echo "$REPORT"
 }
 
-# Menu utama
+# Menu 
 while true; do
     clear
     echo "============================"
     echo "  NETRUM DUALITY SYSTEM"
     echo "============================"
-    echo "1. Auto Claim 24 Jam + Sync 2 Jam Sekali"
+    echo "1. Auto Claim 24 hours + Sync 2 hours "
     echo "2. Cek Balance"
     echo "3. Claim Reward"
-    echo "4. Cek Status Node (Last 10 lines)"
+    echo "4. Check Status Node (Last 10 lines)"
     echo "0. Exit"
     echo "============================"
     read -p "Pilih menu: " choice
 
     case $choice in
         1)
-            echo "🔄 Menjalankan Auto Claim + Sync loop..."
+            echo "🔄 Running Auto Claim + Sync loop..."
             while true; do
                 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
                 CLAIM_LOG=$(cd "$NODE_DIR" && netrum-claim <<< "Y" 2>&1)
@@ -107,7 +107,7 @@ while true; do
             done
             ;;
         2)
-            echo "💰 Cek Balance..."
+            echo "💰 Check Balance..."
             node "$NODE_DIR/balance-report.cjs"
             ;;
         3)
@@ -126,13 +126,14 @@ while true; do
             send_log "Status Node - $TIMESTAMP" "$STATUS_LOG"
             ;;
         0)
-            echo "🚪 Keluar..."
+            echo "🚪 exit..."
             exit 0
             ;;
         *)
-            echo "❌ Pilihan tidak valid."
+            echo "❌ choose not valid."
             ;;
     esac
 
-    read -p "Tekan Enter untuk kembali ke menu..."
+    read -p "press Enter for back to menu..."
 done
+
