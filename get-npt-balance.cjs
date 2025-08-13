@@ -1,4 +1,3 @@
-// get-npt-balance.cjs
 #!/usr/bin/env node
 require('dotenv').config();
 const { ethers } = require('ethers');
@@ -58,3 +57,4 @@ async function getWalletReport(address) {
 }
 
 module.exports = { getNPTBalance, getBaseUsername, getWalletReport, getETHBalance };
+
