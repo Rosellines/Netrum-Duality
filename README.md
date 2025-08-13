@@ -110,7 +110,7 @@ then type "CD neutrum-lite-node/
    ```
 3. **Select Menu**
 
-============================
+
    NETRUM DUALITY SYSTEM
 ============================
 
@@ -157,6 +157,7 @@ The system generates clean, professional reports with:
 - 💰 **Balance Information**
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
+
 
 
 
