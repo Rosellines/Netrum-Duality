@@ -16,17 +16,17 @@ process.stdin.on("end", async () => {
         for (let attempt = 1; attempt <= 3; attempt++) {
             try {
                 await sendFunc();
-                console.log(`✅ Terkirim ke ${platform}: ${title}`);
+                console.log(`✅ Send to ${platform}: ${title}`);
                 return;
             } catch (err) {
-                console.error(`❌ [${platform}] Gagal kirim (Percobaan ${attempt}):`, err.message);
+                console.error(`❌ [${platform}] Failed to send (Try ${attempt}):`, err.message);
                 if (attempt < 3) {
-                    console.log(`⏳ Retry dalam 10 detik...`);
+                    console.log(`⏳ Retry in 10 Second...`);
                     await new Promise(res => setTimeout(res, 10000));
                 }
             }
         }
-        console.error(`🚫 Gagal kirim ke ${platform} setelah 3 percobaan.`);
+        console.error(`🚫 Failed send to ${platform} After 3 try again.`);
     }
 
     if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
@@ -38,7 +38,7 @@ process.stdin.on("end", async () => {
             });
         }, "Telegram");
     } else {
-        console.error("❌ TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID kosong di .env");
+        console.error("❌ TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID empty di .env");
     }
 
     if (process.env.DISCORD_WEBHOOK_URL) {
@@ -46,6 +46,7 @@ process.stdin.on("end", async () => {
             await axios.post(process.env.DISCORD_WEBHOOK_URL, { content: message });
         }, "Discord");
     } else {
-        console.error("❌ DISCORD_WEBHOOK_URL kosong di .env");
+        console.error("❌ DISCORD_WEBHOOK_URL empty di .env");
     }
 });
+
