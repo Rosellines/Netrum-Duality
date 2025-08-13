@@ -71,12 +71,12 @@ then type "CD neutrum-lite-node/
    USE_TELEGRAM=true
    USE_DISCORD=true
    ```
-   ## If you don't have RPC : set default (https://mainnet.base.org)
-   ## NPT Contract : Default
-   ## You can bot send report to discord and telegram. 
-   ## If you want to send to telegram, please disable discord = false
-   ## If you want to send to discord, please disable telegram = false
-   ## and you can send both
+    If you don't have RPC : set default (https://mainnet.base.org)
+    NPT Contract : Default
+    You can bot send report to discord and telegram. 
+    If you want to send to telegram, please disable discord = false
+    If you want to send to discord, please disable telegram = false
+    and you can send both
 
 
 
@@ -157,4 +157,5 @@ The system generates clean, professional reports with:
 - 💰 **Balance Information**
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
+
 
