@@ -1,4 +1,3 @@
-﻿# netrum-auto.sh
 #!/bin/bash
 
 NODE_DIR="/root/netrum-lite-node/Netrum-Duality"
@@ -102,3 +101,4 @@ $CLAIM_LOG"
 
     read -p "Tekan Enter untuk kembali ke menu..."
 done
+
