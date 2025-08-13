@@ -110,9 +110,9 @@ then type "CD neutrum-lite-node/
    ```
 3. **Select Menu**
 
-      ============================
-          NETRUM DUALITY SYSTEM
-      ============================
+============================
+   NETRUM DUALITY SYSTEM
+============================
 
 1. Auto Claim 24 Jam + Sync 2 Jam Sekali
 2. Cek Balance
@@ -157,5 +157,6 @@ The system generates clean, professional reports with:
 - 💰 **Balance Information**
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
+
 
 
