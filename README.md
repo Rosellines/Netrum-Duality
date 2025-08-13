@@ -1,12 +1,12 @@
 # 🔥 Netrum Duality 🔥 
-# AI Mining System - Telegram & Discord Report
+# AI Mining System - Telegram & Discord Report By Mikasa_Nix
 
 A professional Telegram reporting system for Netrum AI mining operations on Base network. This system provides real-time status updates, balance monitoring, and mining cycle notifications directly to your Telegram chat.
 
 ## ✨ Features
 
 - **🚀 Real-time Mining Status**: Get instant notifications when mining starts, claims are processed, and cycles restart
-- **💰 Balance Monitoring**: Track both NPT token and ETH balances on Base network
+- **💰 Balance Monitoring**: Track both NPT token and ETH balances on Base network with Tx Hash
 - **💰 Auto Claim After 24 Hours + Report 2 Hours** : Integrated with auto claim every 24hr and send report balance every 2hr on discord or telegram. and you can use both
 - **🏷️ Base Name Resolution**: Automatic resolution of Base network usernames
 - **📱 Telegram Integration**: Clean, professional reports sent directly to Telegram
@@ -23,12 +23,23 @@ A professional Telegram reporting system for Netrum AI mining operations on Base
 - Discord Webhook
 - Base network RPC access
 - Environment variables configured
+- Build with CommonJS
 
 ## 🛠️ Installation
 
+## The bot will be installed in your node folder
+## Root@user: ~/neutrum-lite-node# <Install here>
+## Go to the folder where you install a neutrum-lite-node node
+## we assume you install it on root
+## Then go to your node folder.
+## Type "CD" to go to the root folder
+## then type "CD neutrum-lite-node/
+
+## Example : root@user: ~/neutrum-lite-node# here you have to install the bot
+
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Rosellines/Netrum-Duality.git
+   git clone https://github.com/Rosellines/Netrum-Duality
    cd Netrum-Duality
    ```
 
@@ -40,9 +51,8 @@ A professional Telegram reporting system for Netrum AI mining operations on Base
 
 3. **Set permissions**:
    ```bash
-   chmod +x send-report.cjs balance-report.cjs netrum-auto.sh get-npt-balance.js
-   find . -type f \( -name "*.sh" -o -name "*.js" -o -name "*.cjs" -o -name "*.json" -o -name "*.md" \) -exec dos2unix {} \;
-   chmod +x *.sh *.cjs *.js 2>/dev/null
+   dos2unix *.cjs *.sh
+   chmod +x netrum-auto.sh
    ```
 
 4. **Configure environment**:
@@ -50,12 +60,25 @@ A professional Telegram reporting system for Netrum AI mining operations on Base
    nano .env
    ```
    
-   Create a `.env` file with:
+   ## Create a `.env` file with:
    ```env
-   BOT_TOKEN=your_telegram_bot_token
-   CHAT_ID=your_telegram_chat_id
-   WALLET=your_wallet_address
+   TELEGRAM_BOT_TOKEN=12345:abcdefghijklmnopqrstuvwxyz
+   TELEGRAM_CHAT_ID=123456
+   WALLET=0xYOURWALLETADDRESSEVM/WALLETREGISTERNETRUM
+   DISCORD_WEBHOOK_URL=https://YOURLINKWEB_HOOCK_DISCORD
+   BASE_RPC=https://mainnet.base.org
+   NPT_CONTRACT=0xb8c2ce84f831175136cebbfd48ce4bab9c7a6424
+   USE_TELEGRAM=true
+   USE_DISCORD=true
    ```
+   ## If you don't have RPC : set default (https://mainnet.base.org)
+   ## NPT Contract : Default
+   ## You can bot send report to discord and telegram. 
+   ## If you want to send to telegram, please disable discord = false
+   ## If you want to send to discord, please disable telegram = false
+   ## and you can send both
+
+
 
 ## 📱 Telegram Bot Setup
 
@@ -70,46 +93,63 @@ A professional Telegram reporting system for Netrum AI mining operations on Base
    - Send any message
    - Visit: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
    - Find your chat ID in the response
+3. **Get Webhook Link Discord**
+   - Make Your Server Own > Go to Setting Server > Integration > Select Webhook
+   - Create New WebHook > Copy URL WebHook > Save
 
 ## 🚀 Quick Start
 
 1. **Create screen session**:
    ```bash
-   screen -S netrumauto
+   screen -S netrum-duality
    ```
 
 2. **Run the mining script**:
    ```bash
-   ./netrum-auto.sh
+   ./netrum-auto.sh or bash netrum-auto.sh
    ```
+3. **Select Menu**
+
+      ============================
+          NETRUM DUALITY SYSTEM
+      ============================
+
+1. Auto Claim 24 Jam + Sync 2 Jam Sekali
+2. Cek Balance
+3. Claim Reward
+4. Cek Status Node (Last 10 lines)
+0. Exit
+============================
+Pilih menu:
 
 3. **Detach from screen**: Press `Ctrl+A` then `D` to run in background
 
 ## 📊 Report Types & Usage
 
-### Start Mining Report
+### Menu 1 
 ```bash
-node send-report.js start
+Claim your point every 24 Hours + 2 Hours send report to your telegram & discord. After 24 Hours bot can claim your point NPT and loop
 ```
 
-### Claim Processing Report
+### Menu 2
 ```bash
-node send-report.js claim
+check Your Balance point NPT
 ```
 
-### Complete & Restart Report
+### Claim Reward
 ```bash
-node send-report.js complete
+Claim Point Manually
 ```
 
-### Default (Start) Report
+### Check Status Node
 ```bash
-node send-report.js
+log your node stat likely netrum-sync-log
 ```
 
 ## 📸 Example Output
 
 ![Telegram Report Example](image.png)
+![Discord Report Example](image2.png)
 
 The system generates clean, professional reports with:
 - 🔥 **System Status Header**
@@ -117,91 +157,3 @@ The system generates clean, professional reports with:
 - 💰 **Balance Information**
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
-
-## 🔧 Configuration
-
-### Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `BOT_TOKEN` | Telegram bot token from BotFather | ✅ |
-| `CHAT_ID` | Your Telegram chat ID | ✅ |
-| `WALLET` | Ethereum wallet address to monitor | ✅ |
-
-### Network Configuration
-
-The system is configured for Base network with:
-- **NPT Contract**: `0xb8c2ce84f831175136cebbfd48ce4bab9c7a6424`
-- **Base Name Resolver**: `0xC6d566A56A1aFf6508b41f6c90ff131615583BCD`
-- **Reverse Registrar**: `0x79ea96012eea67a83431f1701b3dff7e37f9e282`
-
-## 🏗️ Project Structure
-
-```
-netrum-auto/
-├── send-report.js          # Main reporting script
-├── erc20-abi.js           # ERC20 contract ABI
-├── get-npt-balance.js     # NPT balance utility
-├── netrum-auto.sh         # Shell automation script
-├── package.json           # Node.js dependencies
-├── README.md              # Documentation
-└── .env                   # Environment variables
-```
-
-## 🔍 Core Functions
-
-### `getNPTBalance(address)`
-Fetches NPT token balance from Base network contract.
-
-### `getETHBalance(address)`
-Retrieves native ETH balance for gas calculations.
-
-### `getBaseUsername(address)`
-Resolves Base network username (e.g., `username.base.eth`).
-
-### `sendTelegramReport(message)`
-Sends formatted message to configured Telegram chat.
-
-### `generateReport(type)`
-Main function that orchestrates balance fetching and report generation.
-
-## 🛡️ Error Handling
-
-Comprehensive error handling includes:
-- **Network Errors**: Graceful fallback to default values
-- **Contract Errors**: Returns "0.0000" for failed balance queries
-- **Telegram Errors**: Logs errors with HTTP status codes
-- **Username Resolution**: Falls back to "No .base name" if resolution fails
-
-## 🔄 Automation Integration
-
-Example integration with mining automation:
-
-```bash
-# Start mining
-./netrum-auto.sh &
-node send-report.js start
-
-# After 24 hours (automated)
-node send-report.js claim
-# Process claim...
-node send-report.js complete
-```
-
-
-## ⚠️ Disclaimer
-
-This tool is for educational and monitoring purposes only. Always ensure you comply with the terms of service of the platforms and networks you interact with.
-
-## 🙏 Credits
-
-- **Jhinkz** - System Developer & Maintainer
-- **Base Network** - Infrastructure provider
-- **Netrum AI** - Mining platform
-- **Community** - Feedback and support
-
----
-
-**Made with ❤️ by Jhinkz**
-
-*Happy Mining! ⛏️*
