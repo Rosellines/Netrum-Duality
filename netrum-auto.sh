@@ -34,12 +34,12 @@ generate_report() {
 
     TX_HASH=$(echo "$CLAIM_LOG" | grep -Eo '0x[a-fA-F0-9]{64}' | tail -n1)
     CLAIMABLE=$(echo "$CLAIM_LOG" | grep -Eo 'Claimable Tokens: [0-9.]+ NPT' | awk '{print $3}')
-    SUCCESS=$(echo "$CLAIM_LOG" | grep -i 'success\|added\|sukses')
+    SUCCESS=$(echo "$CLAIM_LOG" | grep -i 'success\|added\|success')
     ERROR=$(echo "$CLAIM_LOG" | grep -i 'Insufficient funds')
     SYNC_LOG=$(journalctl -u netrum-node.service -n 1 --no-pager | grep -E '\[INFO\] Sync successful')
 
     if [ -n "$SUCCESS" ]; then
-        REPORT="⏱️ Waktu Claim: $TIMESTAMP
+        REPORT="⏱️ Time Claim: $TIMESTAMP
 💳 Wallet: $WALLETMASKED
 🔗 Base Name: $BASE_NAME
 ✅ Claim success: $CLAIMABLE NPT add on Your wallet.
@@ -66,12 +66,12 @@ while true; do
     echo "  NETRUM DUALITY SYSTEM"
     echo "============================"
     echo "1. Auto Claim 24 hours + Sync 2 hours "
-    echo "2. Cek Balance"
+    echo "2. Check Balance"
     echo "3. Claim Reward"
     echo "4. Check Status Node (Last 10 lines)"
     echo "0. Exit"
     echo "============================"
-    read -p "Pilih menu: " choice
+    read -p "Choose menu: " choice
 
     case $choice in
         1)
@@ -95,7 +95,7 @@ while true; do
                     WALLETMASKED=$(grep ^WALLET "$NODE_DIR/.env" | cut -d '=' -f2 | sed 's/\(0x....\).*\(....\)/\1********\2/')
                     BASE_NAME=$(node "$NODE_DIR/get-base-name.cjs" "$WALLET" 2>/dev/null || echo "No .base name")
 
-                    SYNC_REPORT="⏱️ Waktu Sync: $TIMESTAMP
+                    SYNC_REPORT="⏱️ Time Sync: $TIMESTAMP
 💳 Wallet: $WALLETMASKED
 🔗 Base Name: $BASE_NAME
 🔄 Sync Status: $SYNC_LOG
@@ -136,4 +136,5 @@ while true; do
 
     read -p "press Enter for back to menu..."
 done
+
 
