@@ -27,13 +27,13 @@ A professional Telegram reporting system for Netrum AI mining operations on Base
 
 ## 🛠️ Installation
 
-## The bot will be installed in your node folder
-## Root@user: ~/neutrum-lite-node# <Install here>
-## Go to the folder where you install a neutrum-lite-node node
-## we assume you install it on root
-## Then go to your node folder.
-## Type "CD" to go to the root folder
-## then type "CD neutrum-lite-node/
+The bot will be installed in your node folder
+Root@user: ~/neutrum-lite-node# <Install here>
+Go to the folder where you install a neutrum-lite-node node
+we assume you install it on root
+Then go to your node folder.
+Type "CD" to go to the root folder
+then type "CD neutrum-lite-node/
 
 ## Example : root@user: ~/neutrum-lite-node# here you have to install the bot
 
@@ -157,3 +157,4 @@ The system generates clean, professional reports with:
 - 💰 **Balance Information**
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
+
