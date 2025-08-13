@@ -147,8 +147,7 @@ log your node stat likely netrum-sync-log
 
 ## 📸 Example Output
 
-![Telegram Report Example](image.png)
-![Discord Report Example](image2.png)
+![Telegram & Discord Report Example](image.png)
 
 The system generates clean, professional reports with:
 - 🔥 **System Status Header**
@@ -156,6 +155,7 @@ The system generates clean, professional reports with:
 - 💰 **Balance Information**
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
+
 
 
 
