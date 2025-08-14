@@ -1,5 +1,5 @@
-                                                                        # 🔥 Netrum Duality 🔥 
-                                                                       # Powered By Netrum Labs
+# 🔥 Netrum Duality 🔥 
+# Powered By Netrum Labs
 AI Mining System - Telegram & Discord Report By Mikasa_Nix
 
 A professional Telegram reporting system for Netrum AI mining operations on Base network. This system provides real-time status updates, balance monitoring, and mining cycle notifications directly to your Telegram chat.
@@ -157,6 +157,7 @@ The system generates clean, professional reports with:
 - 💰 **Balance Information**
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
+
 
 
 
