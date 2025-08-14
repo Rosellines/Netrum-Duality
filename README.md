@@ -1,10 +1,10 @@
 # 🔥 Netrum Duality 🔥 
+# Powered By Netrum Labs
 # AI Mining System - Telegram & Discord Report By Mikasa_Nix
 
 A professional Telegram reporting system for Netrum AI mining operations on Base network. This system provides real-time status updates, balance monitoring, and mining cycle notifications directly to your Telegram chat.
 
-(image1.png)
-
+![NETRUM DUALITY](image1.png)
 ## ✨ Features
 
 - **🚀 Real-time Mining Status**: Get instant notifications when mining starts, claims are processed, and cycles restart
