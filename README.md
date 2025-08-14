@@ -158,7 +158,11 @@ The system generates clean, professional reports with:
 - 🏷️ **Base Network Username**
 - ⛽ **ETH Gas Balance**
 
+<Update V2.0 >
+   - Has been change Language system to English Language
 
+
+   #**DROP YOUR STARS**
 
 
 
